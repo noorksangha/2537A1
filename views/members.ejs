@@ -1,0 +1,28 @@
+
+
+<%- include("templates/header") %> 
+<% if (session.authenticated) { %>
+  <div class="container">
+  <h3>Hello, <%= session.name %>! Enjoy the images<h3>
+  <br>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <img src='/1.png'>
+      </div>
+      <div class="col">
+        <img src='/2.png'>
+      </div>
+      <div class="col">
+        <img src='/3.png'>
+      </div>
+    </div>
+  </div>
+  
+  <form action='/signout' method='get'><button>Sign Out</button><br></form>
+</div>
+<% } else {res.redirect('/')} %>
+<%- include("templates/footer") %>
+
+
+

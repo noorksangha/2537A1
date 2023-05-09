@@ -1,0 +1,43 @@
+<%- include("templates/header") %>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Page</title>
+</head>
+<body>
+    <h1 class="text-center">Admin Page</h1>
+    <div class="container mt-3">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Type</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% users.forEach(user => { %>
+                        <tr>
+                            <td><%= user.name %></td>
+                            <td><%= user.email %></td>
+                            <td><%= user.user_type === 'admin' ? 'Admin' : 'User' %></td>
+                            <td>
+                                <% if (user.user_type === 'admin') { %>
+                                    <a href="/demote/<%= user._id %>" class="btn btn-primary">Demote to User</a>
+                                <% } else { %>
+                                    <a href="/promote/<%= user._id %>" class="btn btn-primary">Promote to Admin</a>
+                                <% } %>
+                            </td>
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
+<%- include("templates/footer") %>
+
+

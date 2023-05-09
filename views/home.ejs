@@ -1,0 +1,13 @@
+<%- include("templates/header") %> 
+<div class="container">
+    <h1 class="mt-5">Welcome to My Website</h1>
+    <% if (email) { %>
+        <p>Hello, <%= name %>! You are logged in as <%= email %>.</p>
+    <% } else { %>
+        <p>You are not logged in. Please <a href="/login">log in</a> or <a href="/signup">sign up</a>.</p>
+    <% } %>
+</div>
+<%- include("templates/footer") %> 
+
+
+
